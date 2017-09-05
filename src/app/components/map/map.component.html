@@ -1,0 +1,16 @@
+<h4>MAPS COMPONENT</h4>
+{{mensaje}}
+
+<a [routerLink]="['/home']">VOLVER</a>
+
+<div class="">
+  <ngui-map czoom="13"
+      center="37.775, -122.434"
+      (mapReady$)="onMapReady($event)"
+      (mapClick)="onMapClick($event)"
+      (idle)="onIdle($event)">
+    <marker *ngFor="let pos of positions"
+      [position]="pos"
+      (initialized$)="onMarkerInit($event)"></marker>
+  </ngui-map>
+</div>
